@@ -88,7 +88,9 @@ Mahasiswa akan memahami:
 
 1. **Clone repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/triandessinaga/gesture-music-recommender.git
+      ```
+    ```bash
    cd gesture-music-recommender
    ```
 
