@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gesture-Based Music Recommender - Deep Learning Demo</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 Gesture-Based Music Recommender</h1>
+            <p class="subtitle">Deep Learning: Hand Gesture Recognition + Neural Collaborative Filtering (NCF)</p>
+        </header>
+
+        <div class="main-content">
+            <div class="video-section">
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline></video>
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-primary">Mulai Deteksi</button>
+                    <button id="stopBtn" class="btn btn-secondary" disabled>Stop Kamera</button>
+                </div>
+                <div class="detection-info">
+                    <p>💡 Tunjukkan gesture tangan Anda selama 3 detik:</p>
+                    <div class="gesture-guide">
+                        <span>✌️ Peace Sign = Girang</span>
+                        <span>👍 Thumbs Up = Serius</span>
+                        <span>👎 Thumbs Down = Sedih</span>
+                    </div>
+                </div>
+                <div class="emotion-display">
+                    <h3>Gesture Terdeteksi:</h3>
+                    <div id="emotionResult" class="emotion-badge">Menunggu...</div>
+                    <div id="confidence" class="confidence">Confidence: 0%</div>
+                    <div id="modelStatus" class="model-status">⏳ Loading models...</div>
+                </div>
+            </div>
+
+            <div class="recommendations-section">
+                <h2>🎼 Rekomendasi Lagu</h2>
+                <div id="recommendations" class="recommendations-grid">
+                    <p class="placeholder">Rekomendasi akan muncul setelah emosi terdeteksi</p>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div class="info-box">
+                <h3>📚 Konsep Deep Learning yang Digunakan:</h3>
+                <ul>
+                    <li><strong>Hand Gesture Recognition:</strong> MediaPipe Hands untuk ekstraksi 21 hand landmarks</li>
+                    <li><strong>Gesture Classification:</strong> Deep Neural Network dengan Batch Normalization</li>
+                    <li><strong>Neural Collaborative Filtering (NCF):</strong> User-Item interaction learning dengan MLP</li>
+                    <li><strong>Rule-Based Enhancement:</strong> Heuristic rules untuk akurasi maksimal</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="gestureDetector.js"></script>
+    <script src="ncfRecommender.js"></script>
+    <script src="app.js"></script></script>
+</body>
+</html>
